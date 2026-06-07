@@ -67,11 +67,11 @@ def salvar_caso_teste(nome_arquivo, n, m, p1, p2):
     with open(caminho_completo, 'w', encoding='utf-8') as f:
         f.write(f"{n} {m}\n") 
         
-        f.write("Oferecem Carona (Motoristas):\n")
+        f.write("Oferecem Carona:\n")
         for i, prefs in ranks1.items():
             f.write(f"{i}: {prefs}\n")
             
-        f.write("Recebem Carona (Passageiros):\n")
+        f.write("Recebem Carona:\n")
         for j, prefs in ranks2.items():
             f.write(f"{j}: {prefs}\n")
             
