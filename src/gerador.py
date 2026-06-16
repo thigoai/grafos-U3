@@ -41,8 +41,8 @@ def gerar_caso_teste(n, m, p1, p2):
                 for k in range(1, len(l1[i])):
                     if random.random() > p2:
                         rank_atual += 1
-                    else:
-                        ranks1[i][l1[i][k]] = rank_atual
+                    
+                    ranks1[i][l1[i][k]] = rank_atual
 
         ranks2 = {}
         for j in range(1, m + 1):
@@ -53,8 +53,8 @@ def gerar_caso_teste(n, m, p1, p2):
                 for k in range(1, len(l2[j])):
                     if random.random() > p2:
                         rank_atual += 1
-                    else:
-                        ranks2[j][l2[j][k]] = rank_atual
+
+                    ranks2[j][l2[j][k]] = rank_atual
 
         return ranks1, ranks2
 
@@ -79,4 +79,4 @@ def salvar_caso_teste(nome_arquivo, n, m, p1, p2):
 
 if __name__ == "__main__":
     
-    salvar_caso_teste("caso_1.txt", n=5, m=5, p1=0.2, p2=0.3)
+    salvar_caso_teste("caso_1.txt", n=5, m=5, p1=0, p2=0)
