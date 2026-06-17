@@ -1,16 +1,16 @@
-from collections import deque
+from gerador import *
 
-def pref_to_rank(pref):
-    return {
-        a: {b: rank for rank, b in enumerate(a_pref)}
-        for a, a_pref in pref.items()
-    }
+def rank_to_pref(pref):
+    return [
+        [k for k, v in sorted(d.items(), key=lambda item: item[1])]
+        for d in pref
+    ]
 
-def gale_shapley(H, M, H_pref, M_pref):
+def gale_shapley(H, M, H_rank, M_rank):
     rejeitados = set(H)
     proxima_opcao = {h : 0 for h in H}
     em_consideracao = {m : None for m in M}
-    M_rank = pref_to_rank(M_pref)
+    H_pref = rank_to_pref(H_rank)
 
     while rejeitados:
         h = rejeitados.pop()
@@ -31,4 +31,5 @@ def gale_shapley(H, M, H_pref, M_pref):
 
     return [(h, m) for m, h in em_consideracao.items()]
 
-
+if __name__ == "__main__":
+        

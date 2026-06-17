@@ -13,12 +13,12 @@ def gerar_caso_teste(n, m, p1, p2):
     while True:
         
         # Preferências aleatórias
-        l1 = {i: random.sample(range(1, m + 1), m) for i in range(1, n + 1)}
-        l2 = {j: random.sample(range(1, n + 1), n) for j in range(1, m + 1)}
+        l1 = {i: random.sample(range(m), m) for i in range(n)}
+        l2 = {j: random.sample(range(n), n) for j in range(m)}
 
         recomece = False
 
-        for i in range(1, n + 1):
+        for i in range(n):
             for j in list(l1[i]):
                 p = random.random()
                 if p <= p1:
@@ -32,25 +32,25 @@ def gerar_caso_teste(n, m, p1, p2):
         if recomece:
             continue
             
-        ranks1 = {}
-        for i in range(1, n + 1):
-            ranks1[i] = {}
+        ranks1 = [] 
+        for i in range(n):
+            ranks1.append({})
             if l1[i]:
                 ranks1[i][l1[i][0]] = 1
                 rank_atual = 1
-                for k in range(1, len(l1[i])):
+                for k in range(len(l1[i])):
                     if random.random() > p2:
                         rank_atual += 1
-                    
+
                     ranks1[i][l1[i][k]] = rank_atual
 
-        ranks2 = {}
-        for j in range(1, m + 1):
-            ranks2[j] = {}
+        ranks2 = [] 
+        for j in range(m):
+            ranks2.append({})
             if l2[j]:
                 ranks2[j][l2[j][0]] = 1
                 rank_atual = 1
-                for k in range(1, len(l2[j])):
+                for k in range(len(l2[j])):
                     if random.random() > p2:
                         rank_atual += 1
 
@@ -78,5 +78,4 @@ def salvar_caso_teste(nome_arquivo, n, m, p1, p2):
 
 
 if __name__ == "__main__":
-    
     salvar_caso_teste("caso_1.txt", n=5, m=5, p1=0, p2=0)
