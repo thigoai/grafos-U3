@@ -1,7 +1,6 @@
 import random
 import os
 
-
 def gerar_caso_teste(n, m, p1, p2):
     """
     n: número de funcionários oferecendo carona
@@ -36,9 +35,9 @@ def gerar_caso_teste(n, m, p1, p2):
         for i in range(n):
             ranks1.append({})
             if l1[i]:
-                ranks1[i][l1[i][0]] = 1
+                ranks1[i][l1[i][0]] = 1 
                 rank_atual = 1
-                for k in range(len(l1[i])):
+                for k in range(1, len(l1[i])):
                     if random.random() > p2:
                         rank_atual += 1
 
@@ -50,7 +49,7 @@ def gerar_caso_teste(n, m, p1, p2):
             if l2[j]:
                 ranks2[j][l2[j][0]] = 1
                 rank_atual = 1
-                for k in range(len(l2[j])):
+                for k in range(1, len(l2[j])):
                     if random.random() > p2:
                         rank_atual += 1
 
@@ -68,14 +67,10 @@ def salvar_caso_teste(nome_arquivo, n, m, p1, p2):
         f.write(f"{n} {m}\n") 
         
         f.write("Oferecem Carona:\n")
-        for i, prefs in ranks1.items():
+        for i, prefs in enumerate(ranks1):
             f.write(f"{i}: {prefs}\n")
             
         f.write("Recebem Carona:\n")
-        for j, prefs in ranks2.items():
+        for j, prefs in enumerate(ranks2):
             f.write(f"{j}: {prefs}\n")
             
-
-
-if __name__ == "__main__":
-    salvar_caso_teste("caso_1.txt", n=5, m=5, p1=0, p2=0)

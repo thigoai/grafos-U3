@@ -1,5 +1,5 @@
-import gale_shapley
-import gerador
+import algoritmos.gale_shapley as gale_shapley
+import utils.gerador as gerador
 
 # dado um casamento C = [(m_1, w_1)...(m_i, w_i)] 
 # Um conjunto H, de homens
