@@ -31,5 +31,4 @@ def gale_shapley(H, M, H_rank, M_rank):
 
     return [(h, m) for m, h in em_consideracao.items()]
 
-if __name__ == "__main__":
         
