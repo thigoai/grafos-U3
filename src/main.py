@@ -56,8 +56,7 @@ def opcao_analise_complexidade():
     if escolha == 1:
         tamanhos, tempos = executar_analise_gale_shapley(PASTA_CASOS)
     elif escolha == 2:
-
-        tamanhos, tempos = executar_analise_local_search(PASTA_CASOS, n_passos=100)
+        tamanhos, tempos = executar_analise_local_search(PASTA_CASOS, n_passos=200)
     else:
         print("Opção inválida.")
         return
