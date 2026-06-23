@@ -1,11 +1,10 @@
 from algoritmos.gale_shapley import gale_shapley
-# from algoritmos.local_search import local_search
+from algoritmos.local_search import local_search  
 
 ALGORITMOS = {
     1: "Gale-Shapley",
     2: "Local Search",
 }
-
 
 def executar(alg_escolha, H, M, H_pref, M_pref):
     """
@@ -29,8 +28,6 @@ def executar(alg_escolha, H, M, H_pref, M_pref):
     ------
     ValueError
         Se alg_escolha não corresponder a nenhum algoritmo disponível.
-    NotImplementedError
-        Se o algoritmo ainda não estiver implementado.
     """
     nome = ALGORITMOS.get(alg_escolha)
     if nome is None:
@@ -39,7 +36,8 @@ def executar(alg_escolha, H, M, H_pref, M_pref):
     if alg_escolha == 1:
         resultado = gale_shapley(H, M, H_pref, M_pref)
     elif alg_escolha == 2:
-        raise NotImplementedError("Local Search ainda não implementado.")
+        n_passos = 1000  
+        resultado = local_search(H, M, H_pref, M_pref, n_passos)
 
     return nome, resultado
 

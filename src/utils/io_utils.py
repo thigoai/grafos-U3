@@ -50,7 +50,6 @@ def listar_casos_teste(pasta, prefixo_excluir='teste_N'):
         if f.endswith('.txt') and not f.startswith(prefixo_excluir)
     ]
 
-
 def salvar_relatorio(nome_algoritmo, nome_arquivo, resultado):
     valor_solucao = len(resultado)
     relatorio = (
@@ -67,14 +66,35 @@ def salvar_relatorio(nome_algoritmo, nome_arquivo, resultado):
     else:
         relatorio += "  - Nenhum par foi formado.\n"
 
-    nome_relatorio = (
-        f"relatorio_{nome_algoritmo.lower().replace(' ', '_')}_{nome_arquivo}"
-    )
+    nome_base = f"relatorio_{nome_algoritmo.lower().replace(' ', '_')}_{nome_arquivo}"
+    
+    pasta_relatorios = "../relatorios"
+    os.makedirs(pasta_relatorios, exist_ok=True)
+    
+    nome_relatorio = os.path.join(pasta_relatorios, nome_base)
+
     with open(nome_relatorio, 'w', encoding='utf-8') as f:
         f.write(relatorio)
 
     return relatorio, nome_relatorio
 
+def salvar_log_analise(tamanhos, tempos, nome_algoritmo):
+    """Salva os tempos de execução da análise em um arquivo de texto."""
+    pasta_relatorios = "../relatorios"
+    os.makedirs(pasta_relatorios, exist_ok=True)
+    
+    nome_arquivo = os.path.join(
+        pasta_relatorios, 
+        f"log_tempos_{nome_algoritmo.lower().replace(' ', '_')}.txt"
+    )
+
+    with open(nome_arquivo, 'w', encoding='utf-8') as f:
+        f.write(f"Analisando {nome_algoritmo}...\n")
+        for n, tempo in zip(tamanhos, tempos):
+            f.write(f"N={n:<4} | {tempo:.4f} segundos.\n")
+            
+    print(f"Log de tempos salvo em: {nome_arquivo}")
+    return nome_arquivo
 
 def imprimir_grafico_terminal(xs, ys, max_largura=50):
     print("\n" + "=" * 65)
