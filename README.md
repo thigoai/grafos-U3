@@ -1,6 +1,23 @@
 # grafos-U3
 
-Trabalho da terceira unidade da diciplina de Grafos. 
+Trabalho da terceira unidade da disciplina de Grafos. 
+
+O projeto consiste em um Sistema de Caronas baseado no Problema dos Casamentos Estáveis (*Stable Marriage SMP*), adaptado para lidar com complicadores reais como listas de preferências incompletas e empates.
+
+## Algoritmos Implementados
+
+Os códigos com as regras de negócio e resoluções dos algoritmos estão localizados na pasta `src/algoritmos/`:
+
+* **Gale-Shapley (`src/algoritmos/gale_shapley.py`):** Algoritmo clássico exato que encontra uma solução estável em tempo polinomial para cenários ideais.
+* **Busca Local / Local Search (`src/algoritmos/local_search.py`):** Abordagem heurística desenvolvida para buscar casamentos máximos e minimizar a existência de pares bloqueadores em cenários complexos (com empates e listas incompletas, onde o problema se torna NP-difícil).
+
+## Como Executar
+
+Para rodar o menu interativo e testar os algoritmos ou gerar análises de complexidade, execute o seguinte comando a partir da raiz do projeto:
+
+```bash
+python3 src/main.py
+```
 
 ## Casos Testes
 
