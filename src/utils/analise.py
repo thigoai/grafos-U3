@@ -7,7 +7,7 @@ from algoritmos.local_search import local_search
 
 from utils.io_utils import carregar_caso_teste, imprimir_grafico_terminal, salvar_log_analise
 
-TAMANHOS_GS = [50, 100, 150]
+TAMANHOS_GS = [10, 50, 100, 200, 400, 600, 800, 1000, 1200, 1500, 2000]
 
 TAMANHOS_LS = [50, 100, 150]
 
