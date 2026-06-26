@@ -65,8 +65,8 @@ def opcao_analise_complexidade():
         print("Opção inválida.")
         return
 
-    # Passando o nome do algoritmo adiante
     exibir_resultados(tamanhos, tempos, nome_algoritmo)
+    
 def opcao_gerar_caso():
     print("\nGERADOR DE CASOS DE TESTE")
     nome = input("Nome do arquivo (ex: meu_teste.txt): ")
