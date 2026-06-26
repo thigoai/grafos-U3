@@ -22,19 +22,20 @@ def executar_analise_gale_shapley(pasta_casos, tamanhos=None):
     print("\nAnalisando Gale-Shapley...")
     
     for n in tamanhos:
-        nome_arquivo = f"teste_N{n}.txt"
-        caminho = os.path.join(pasta_casos, nome_arquivo)
+        for i in range(N_REPETICOES):
+            nome_arquivo = f"teste_N{n}.txt"
+            caminho = os.path.join(pasta_casos, nome_arquivo)
 
-        gerador.salvar_caso_teste(nome_arquivo, n, n, p1=0, p2=0)
-        H, M, H_rank, M_rank = carregar_caso_teste(caminho)
+            gerador.salvar_caso_teste(nome_arquivo, n, n, p1=0, p2=0)
+            H, M, H_rank, M_rank = carregar_caso_teste(caminho)
 
-        inicio = time.time()
-        gale_shapley(H, M, H_rank, M_rank)
-        fim = time.time()
+            inicio = time.time()
+            gale_shapley(H, M, H_rank, M_rank)
+            fim = time.time()
 
-        tempo = fim - inicio
-        tempos.append(tempo)
-        print(f"N={n:<4} | {tempo:.4f} segundos.")
+            tempo = fim - inicio
+            tempos.append(tempo)
+            print(f"N={n:<4} | {tempo:.4f} segundos.")
 
     return tamanhos, tempos
 
