@@ -53,16 +53,20 @@ def opcao_analise_complexidade():
     
     os.makedirs(PASTA_CASOS, exist_ok=True)
     
+    nome_algoritmo = ""
+    
     if escolha == 1:
+        nome_algoritmo = "Gale-Shapley"
         tamanhos, tempos = executar_analise_gale_shapley(PASTA_CASOS)
     elif escolha == 2:
+        nome_algoritmo = "Local Search"
         tamanhos, tempos = executar_analise_local_search(PASTA_CASOS, n_passos=200)
     else:
         print("Opção inválida.")
         return
 
-    exibir_resultados(tamanhos, tempos)
-
+    # Passando o nome do algoritmo adiante
+    exibir_resultados(tamanhos, tempos, nome_algoritmo)
 def opcao_gerar_caso():
     print("\nGERADOR DE CASOS DE TESTE")
     nome = input("Nome do arquivo (ex: meu_teste.txt): ")
