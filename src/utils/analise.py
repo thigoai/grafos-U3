@@ -44,7 +44,7 @@ def executar_analise_local_search(pasta_casos, tamanhos=None, n_passos=200):
         tamanhos = TAMANHOS_LS
 
     tempos = []
-    tamanhos_executados = [] # <-- NOVA LISTA
+    tamanhos_executados = [] 
     print(f"\nAnalisando Local Search (Passos: {n_passos})...")
 
     for n in tamanhos:
@@ -61,10 +61,10 @@ def executar_analise_local_search(pasta_casos, tamanhos=None, n_passos=200):
 
             tempo = fim - inicio
             tempos.append(tempo)
-            tamanhos_executados.append(n) # <-- ADICIONA O N ATUAL
+            tamanhos_executados.append(n) 
             print(f"N={n:<4} | {tempo:.4f} segundos.")
 
-    # Retorna a lista expandida em vez da lista original curta
+    
     return tamanhos_executados, tempos
 
 
