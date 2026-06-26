@@ -11,7 +11,7 @@ TAMANHOS_GS = [10, 50, 100, 200, 400, 600, 800, 1000, 1200, 1500, 2000]
 
 TAMANHOS_LS = [50, 100, 150]
 
-N_REPETICOES = 5
+N_REPETICOES = 30
 
 
 def executar_analise_gale_shapley(pasta_casos, tamanhos=None):
