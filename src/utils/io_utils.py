@@ -96,9 +96,9 @@ def salvar_log_analise(tamanhos, tempos, nome_algoritmo):
     print(f"Log de tempos salvo em: {nome_arquivo}")
     return nome_arquivo
 
-def imprimir_grafico_terminal(xs, ys, max_largura=50):
+def imprimir_grafico_terminal(xs, ys, max_largura=50, nome_algoritmo="Gale-Shapley"):
     print("\n" + "=" * 65)
-    print("TEMPO DE EXECUÇÃO - GALE-SHAPLEY")
+    print(f"TEMPO DE EXECUÇÃO")
     print("=" * 65)
 
     max_y = max(ys) if max(ys) > 0 else 0.0001
