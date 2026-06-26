@@ -1,4 +1,4 @@
-from gerador import *
+from utils.gerador import *
 
 def rank_to_pref(pref):
     return [
@@ -22,7 +22,7 @@ def gale_shapley(H, M, H_rank, M_rank):
         if (h2 == None):
             em_consideracao[m] = h
 
-        elif M_rank[m][em_consideracao[m]] < M_rank[m][h]:
+        elif M_rank[m][em_consideracao[m]] > M_rank[m][h]:
             rejeitados.add(em_consideracao[m])
             em_consideracao[m] = h
 
