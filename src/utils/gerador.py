@@ -60,8 +60,8 @@ def gerar_caso_teste(n, m, p1, p2):
 def salvar_caso_teste(nome_arquivo, n, m, p1, p2):
     ranks1, ranks2 = gerar_caso_teste(n, m, p1, p2)
     
-    os.makedirs("../casos_teste", exist_ok=True)
-    caminho_completo = os.path.join("../casos_teste", nome_arquivo)
+    os.makedirs("casos_teste", exist_ok=True)
+    caminho_completo = os.path.join("casos_teste", nome_arquivo)
     
     with open(caminho_completo, 'w', encoding='utf-8') as f:
         f.write(f"{n} {m}\n") 

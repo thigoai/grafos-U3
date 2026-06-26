@@ -5,7 +5,7 @@ from utils.io_utils import carregar_caso_teste, listar_casos_teste, salvar_relat
 from utils.executador import executar, menu_algoritmos
 from utils.gerador import salvar_caso_teste
 
-PASTA_CASOS = "../casos_teste"
+PASTA_CASOS = "casos_teste"
 
 def opcao_executar_caso():
     arquivos = listar_casos_teste(PASTA_CASOS)

@@ -68,7 +68,7 @@ def salvar_relatorio(nome_algoritmo, nome_arquivo, resultado):
 
     nome_base = f"relatorio_{nome_algoritmo.lower().replace(' ', '_')}_{nome_arquivo}"
     
-    pasta_relatorios = "../relatorios"
+    pasta_relatorios = "relatorios"
     os.makedirs(pasta_relatorios, exist_ok=True)
     
     nome_relatorio = os.path.join(pasta_relatorios, nome_base)
@@ -80,7 +80,7 @@ def salvar_relatorio(nome_algoritmo, nome_arquivo, resultado):
 
 def salvar_log_analise(tamanhos, tempos, nome_algoritmo):
     """Salva os tempos de execução da análise em um arquivo de texto."""
-    pasta_relatorios = "../relatorios"
+    pasta_relatorios = "relatorios"
     os.makedirs(pasta_relatorios, exist_ok=True)
     
     nome_arquivo = os.path.join(
