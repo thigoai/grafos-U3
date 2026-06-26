@@ -7,7 +7,7 @@ from algoritmos.local_search import local_search
 
 from utils.io_utils import carregar_caso_teste, imprimir_grafico_terminal, salvar_log_analise
 
-TAMANHOS_GS = [10, 50, 100, 200, 400, 600, 800, 1000, 1200, 1500, 2000]
+TAMANHOS_GS = [50, 100, 150]
 
 TAMANHOS_LS = [50, 100, 150]
 
@@ -19,10 +19,11 @@ def executar_analise_gale_shapley(pasta_casos, tamanhos=None):
         tamanhos = TAMANHOS_GS
 
     tempos = []
+    tamanhos_executados = [] # <-- NOVA LISTA
     print("\nAnalisando Gale-Shapley...")
     
     for n in tamanhos:
-        for i in range(N_REPETICOES):
+        for i in range(N_REPETICOES): # <-- Assumindo que você adicionou as repetições
             nome_arquivo = f"teste_N{n}.txt"
             caminho = os.path.join(pasta_casos, nome_arquivo)
 
@@ -35,9 +36,10 @@ def executar_analise_gale_shapley(pasta_casos, tamanhos=None):
 
             tempo = fim - inicio
             tempos.append(tempo)
+            tamanhos_executados.append(n) 
             print(f"N={n:<4} | {tempo:.4f} segundos.")
 
-    return tamanhos, tempos
+    return tamanhos_executados, tempos
 
 
 def executar_analise_local_search(pasta_casos, tamanhos=None, n_passos=200):
